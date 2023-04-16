@@ -20,4 +20,22 @@ async def on_ready():
   print()
   print("The bot is online")
 
+#jika ada member join
+@client.event
+async def on_member_join(member):
+  member, buangan = str(member).split("#")
+  channel = client.get_channel(1093375640943722536)
+  #role = discord.utils.get(member.guild.roles, name = "orang biasa")
+  #await member.add_roles(role)
+    
+  await channel.send(f"Hello {member}!!")
+  
+
+#jika ada member keluar
+@client.event
+async def on_member_remove(member):
+  member, buangan = str(member).split("#")
+  channel = client.get_channel(762903325494083615)
+  await channel.send(f"Bye {member} :(")
+
 client.run(my_secret)
