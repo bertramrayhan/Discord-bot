@@ -44,7 +44,20 @@ class Setup(commands.Cog):
     print()
     print("The bot is online")
     
+  #list command
+  @commands.command()
+  async def commands(self, ctx):
+    embed = discord.Embed(title="Command List", color=0x00ff00, timestamp= ctx.message.created_at)
 
+    embed.add_field(name="halo", value="Menyapa bot\nContoh : !halo", inline=False)
+    embed.add_field(name="ping", value="mengetes apakah bot online\nContoh : !ping", inline=False)
+    embed.add_field(name="roll", value="Mengocok dadu enam sisi\nContoh : !roll 3", inline=False)
+    embed.add_field(name="cuaca jember", value="Menampilkan informasi cuaca dan suhu di kota-kota di dunia\nContoh : !cuaca jember, !weather jember", inline=False)
+    embed.add_field(name="tebak angka", value="Menebak angka dari 1-10\nContoh : !tebakangka", inline=False)
+    embed.add_field(name="suit", value="Bermain suit dengan bot\nContoh : !suit gunting, !gubake gunting", inline=False)
+    embed.add_field(name="latency", value="Untuk mengetahui apakah bot sedang berjalan dengan lancar atau tidak\nContoh !latency")
+
+    await ctx.send(embed=embed)
 
 async def setup(bot):
   await bot.add_cog(Setup(bot))
